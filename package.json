@@ -1,0 +1,17 @@
+{
+  "name": "mezuntext",
+  "version": "0.1.0",
+  "description": "Generate HTML pages from markdown text.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "J. J. W. Mezun",
+  "license": "GPL-3.0-or-later",
+  "dependencies": {
+    "express": "^4.18.1"
+  },
+  "devDependencies": {
+    "jest": "^28.1.2"
+  }
+}
