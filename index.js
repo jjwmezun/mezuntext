@@ -54,8 +54,18 @@ module.exports = ( docs, assets ) => {
         res.send( text );
     });
 
+    app.get( `/`, ( req, res ) => {
+        let text = `<!DOCTYPE html><html lang="en"><head></head><body>`;
+        const chaps = fs.readdirSync( docs );
+        if ( chaps.length > 0 ) {
+            text += `<ul>${ chaps.map( i => `<li><a href="/${ slugFromURL( i ) }/">${ i }</a></li>` ) }</ul>`;
+        }
+        text += `</body></html>`;
+        res.send( text );
+    });
+
     app.get( `*`, ( req, res ) => {
-        res.redirect( 301, `/001/` );
+        res.redirect( 301, `/` );
     });
 
     app.listen( port, () => {
