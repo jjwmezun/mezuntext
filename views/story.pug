@@ -1,0 +1,12 @@
+extends base.pug
+
+block content
+    article(class=`story`)
+        | !{text}
+    if nav.length
+        ul
+            for link in nav
+                li
+                    a(href=`${link.link}`) #{link.text}
+    div
+        a(href=`/`) Home

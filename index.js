@@ -1,8 +1,11 @@
 const express = require( `express` );
-const app = express();
-const port = 3000;
 const fs = require( `fs` );
 const mdToHtml = require( `./md-to-html` );
+const path = require( `path` );
+const template = require( `./template` );
+
+const port = 3000;
+const app = express();
 
 const getChapterString = ( chapter ) => chapter.toString().padStart( 3, `0` );
 
@@ -13,6 +16,7 @@ const slugFromURL = ( url ) => {
 };
 
 module.exports = ( docs, assets ) => {
+    app.use( `/base/assets`, express.static( path.join( __dirname, `assets` ) ) );
     if ( assets ) {
         app.use( express.static( assets ) );
     }
@@ -23,7 +27,7 @@ module.exports = ( docs, assets ) => {
 
     app.get( `/:chapter/`, ( req, res ) => {
         const data = fs.readFileSync( `${ docs }/${ req.params.chapter }.md` );
-        let text = `<!DOCTYPE html><html lang="en"><head></head><body>${ mdToHtml( data.toString() ) }`;
+        const text = mdToHtml( data.toString() );
 
         const nav = [];
         const chaps = fs.readdirSync( docs );
@@ -41,27 +45,18 @@ module.exports = ( docs, assets ) => {
             }
         }
 
-        if ( nav.length !== 0 ) {
-            text += `<nav>
-                <ul>
-                    ${ nav.reduce( ( text, item ) => `${ text }<li><a href="${ item.link }">${ item.text }</a></li>`, `` ) }
-                </ul>
-            </nav>`;
-        }
-
-        text += `</body></html>`;
-
-        res.send( text );
+        res.send( template( `story`, {
+            text: text,
+            nav: nav
+        } ) );
     });
 
     app.get( `/`, ( req, res ) => {
-        let text = `<!DOCTYPE html><html lang="en"><head></head><body>`;
         const chaps = fs.readdirSync( docs );
-        if ( chaps.length > 0 ) {
-            text += `<ul>${ chaps.map( i => `<li><a href="/${ slugFromURL( i ) }/">${ i }</a></li>` ) }</ul>`;
-        }
-        text += `</body></html>`;
-        res.send( text );
+        res.send( template( `index`, {
+            title: `Table o’ Contents`,
+            stories: chaps.length > 0 ? chaps.map( i => { return { url: slugFromURL( i ), title: i } } ) : []
+        } ) );
     });
 
     app.get( `*`, ( req, res ) => {

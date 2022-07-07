@@ -1,0 +1,11 @@
+extends base.pug
+
+block content
+    h1 Table o’ Contents
+    ul
+        if stories.length
+            each story in stories
+                li
+                    a(href=`${story.url}`) #{story.title}
+        else
+            p There are no stories.
