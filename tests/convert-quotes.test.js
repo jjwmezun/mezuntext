@@ -1,7 +1,11 @@
-const convertQuotes = require( `../convert-quotes` );
+const {
+    convertStringQuotes,
+    convertListQuotes,
+    convertTagQuotes
+} = require( `../convert-quotes` );
 
 test( `Converts # to headers`, () => {
-    expect( convertQuotes( `Them: <Hello>, said they.`, false, null ) )
+    expect( convertStringQuotes( `Them: <Hello>, said they.`, false, null ) )
         .toStrictEqual({
             content: [
                 `Them: `,
@@ -16,7 +20,7 @@ test( `Converts # to headers`, () => {
             inQuote: false
         });
 
-    expect( convertQuotes( `<Hello>, said they.`, false, null ) )
+    expect( convertStringQuotes( `<Hello>, said they.`, false, null ) )
         .toStrictEqual({
             content: [
                 {
@@ -30,7 +34,7 @@ test( `Converts # to headers`, () => {
             inQuote: false
         });
 
-    expect( convertQuotes( `<Hello>`, false, null ) )
+    expect( convertStringQuotes( `<Hello>`, false, null ) )
         .toStrictEqual({
             content: [
                 {
@@ -43,13 +47,13 @@ test( `Converts # to headers`, () => {
             inQuote: false
         });
 
-    expect( convertQuotes( `What.`, false, null ) )
+    expect( convertStringQuotes( `What.`, false, null ) )
         .toStrictEqual({
             content: `What.`,
             inQuote: false
         });
 
-    expect( convertQuotes( `They said: <Hello.`, false, null ) )
+    expect( convertStringQuotes( `They said: <Hello.`, false, null ) )
         .toStrictEqual({
             content: [
                 `They said: `,
@@ -63,7 +67,7 @@ test( `Converts # to headers`, () => {
             inQuote: true
         });
 
-    expect( convertQuotes( `& that’s the way it is>, she concluded.`, true, null ) )
+    expect( convertStringQuotes( `& that’s the way it is>, she concluded.`, true, null ) )
         .toStrictEqual({
             content: [
                 {
@@ -77,7 +81,7 @@ test( `Converts # to headers`, () => {
             inQuote: false
         });
 
-    expect( convertQuotes( `& that’s the way it is.`, true, null ) )
+    expect( convertStringQuotes( `& that’s the way it is.`, true, null ) )
         .toStrictEqual({
             content: [
                 {
@@ -87,6 +91,82 @@ test( `Converts # to headers`, () => {
                     parent: null
                 }
             ],
+            inQuote: true
+        });
+
+    expect( convertStringQuotes( `That’s just how it is>, they said.& then they said, <Hey, you —— don’t forget>.`, true, null ) )
+        .toStrictEqual({
+            content: [
+                {
+                    tag: `q`,
+                    atts: { class: `quote-no-start` },
+                    content: `That’s just how it is>`,
+                    parent: null
+                },
+                `, they said.& then they said, `,
+                {
+                    tag: `q`,
+                    atts: {},
+                    content: `<Hey, you —— don’t forget>`,
+                    parent: null
+                },
+                `.`
+            ],
+            inQuote: false
+        });
+
+    
+    expect( convertListQuotes([
+        `That’s just how it is>, they said.`,
+        `& then they said, <Hey, you —`,
+        `— don’t forget>.`
+    ], true, null ) )
+        .toStrictEqual({
+            content: [
+                {
+                    tag: `q`,
+                    atts: { class: `quote-no-start` },
+                    content: `That’s just how it is>`,
+                    parent: null
+                },
+                `, they said.& then they said, `,
+                {
+                    tag: `q`,
+                    atts: {},
+                    content: `<Hey, you —— don’t forget>`,
+                    parent: null
+                },
+                `.`
+            ],
+            inQuote: false
+        });
+
+    
+    expect( convertTagQuotes({
+        tag: `p`,
+        atts: {},
+        content: `& that’s the way it is.`,
+        parent: null
+    }, true ) )
+        .toStrictEqual({
+            content: {
+                tag: `p`,
+                atts: {},
+                content: [
+                    {
+                        tag: `q`,
+                        atts: { class: `quote-no-end quote-no-start` },
+                        content: `& that’s the way it is.`,
+                        parent: {
+                            tag: `p`,
+                            atts: {},
+                            content: `& that’s the way it is.`,
+                            parent: null
+                        }
+                    }
+                ],
+                parent: null
+            },
             inQuote: true
         });
 });
