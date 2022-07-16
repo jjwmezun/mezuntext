@@ -15,6 +15,11 @@ const slugFromURL = ( url ) => {
     return list.join( `` );
 };
 
+const pageNotFound = ( res ) => {
+    res.status( 404 );
+    res.send( template( `404` ) );
+};
+
 module.exports = ( docs, assets ) => {
     app.use( `/base/assets`, express.static( path.join( __dirname, `assets` ) ) );
     if ( assets ) {
@@ -26,29 +31,35 @@ module.exports = ( docs, assets ) => {
     }
 
     app.get( `/:chapter/`, ( req, res ) => {
-        const data = fs.readFileSync( `${ docs }/${ req.params.chapter }.md` );
-        const text = mdToHtml( data.toString() );
-
-        const nav = [];
-        const chaps = fs.readdirSync( docs );
-        for ( let i = 0; i < chaps.length; ++i ) {
-            if ( chaps[i] === `${req.params.chapter}.md` ) {
-                if ( i > 0 ) {
-                    nav.push({ text: `⇤ 1st Chapter`, link: `/${ slugFromURL( chaps[ 0 ] ) }/` });
-                    nav.push({ text: `← Previous Chapter`, link: `/${ slugFromURL( chaps[ i - 1 ] ) }/` });
-                }
-                if ( i < chaps.length - 1 ) {
-                    nav.push({ text: `Next Chapter →`, link: `/${ slugFromURL( chaps[ i + 1 ] ) }/` });
-                    nav.push({ text: `Last Chapter ⇥`, link: `/${ slugFromURL( chaps[ chaps.length - 1 ] ) }/` });
-                }
-                break;
+        fs.readFile( `${ docs }/${ req.params.chapter }.md`, ( err, data ) => {
+            if ( err ) {
+                pageNotFound( res );
+                return;
             }
-        }
 
-        res.send( template( `story`, {
-            text: text,
-            nav: nav
-        } ) );
+            const text = mdToHtml( data.toString() );
+
+            const nav = [];
+            const chaps = fs.readdirSync( docs );
+            for ( let i = 0; i < chaps.length; ++i ) {
+                if ( chaps[i] === `${req.params.chapter}.md` ) {
+                    if ( i > 0 ) {
+                        nav.push({ text: `⇤ 1st Chapter`, link: `/${ slugFromURL( chaps[ 0 ] ) }/` });
+                        nav.push({ text: `← Previous Chapter`, link: `/${ slugFromURL( chaps[ i - 1 ] ) }/` });
+                    }
+                    if ( i < chaps.length - 1 ) {
+                        nav.push({ text: `Next Chapter →`, link: `/${ slugFromURL( chaps[ i + 1 ] ) }/` });
+                        nav.push({ text: `Last Chapter ⇥`, link: `/${ slugFromURL( chaps[ chaps.length - 1 ] ) }/` });
+                    }
+                    break;
+                }
+            }
+
+            res.send( template( `story`, {
+                text: text,
+                nav: nav
+            } ) );
+        });
     });
 
     app.get( `/`, ( req, res ) => {
@@ -60,7 +71,7 @@ module.exports = ( docs, assets ) => {
     });
 
     app.get( `*`, ( req, res ) => {
-        res.redirect( 301, `/` );
+        pageNotFound( res );
     });
 
     app.listen( port, () => {
