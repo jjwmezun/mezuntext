@@ -7,6 +7,7 @@ Generate HTML pages from markdown text.
 ### 0.3.0
 * 404 Page Not Found error page.
 * New fonts.
+* Update Markdown parser to parse blockquotes.
 
 ### 0.2.0
 * Table o’ contents home page.
