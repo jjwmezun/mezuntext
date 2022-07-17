@@ -1,9 +1,170 @@
+@font-face
+{
+    font-family: "Droid Serif";
+    src: url( "/base/assets/fonts/DroidSerif.woff2" ) format( "woff2" ),
+        url( "/base/assets/fonts/DroidSerif.woff" ) format( "woff" ),
+        url( "/base/assets/fonts/DroidSerif.ttf" ) format( "ttf" );
+    font-style: normal;
+    font-weight: 400;
+}
+
+@font-face
+{
+    font-family: "Droid Serif";
+    src: url( "/base/assets/fonts/DroidSerif-Bold.woff2" ) format( "woff2" ),
+        url( "/base/assets/fonts/DroidSerif-Bold.woff" ) format( "woff" ),
+        url( "/base/assets/fonts/DroidSerif-Bold.ttf" ) format( "ttf" );
+    font-style: normal;
+    font-weight: 700;
+}
+
+@font-face
+{
+    font-family: "Droid Serif";
+    src: url( "/base/assets/fonts/DroidSerif-Italic.woff2" ) format( "woff2" ),
+        url( "/base/assets/fonts/DroidSerif-Italic.woff" ) format( "woff" ),
+        url( "/base/assets/fonts/DroidSerif-Italic.ttf" ) format( "ttf" );
+    font-style: italic;
+    font-weight: 400;
+}
+
+@font-face
+{
+    font-family: "Droid Serif";
+    src: url( "/base/assets/fonts/DroidSerif-BoldItalic.woff2" ) format( "woff2" ),
+        url( "/base/assets/fonts/DroidSerif-BoldItalic.woff" ) format( "woff" ),
+        url( "/base/assets/fonts/DroidSerif-BoldItalic.ttf" ) format( "ttf" );
+    font-style: italic;
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: "Roboto";
+    src: url( "/base/assets/fonts/Roboto-BlackItalic.woff2" ) format( "woff2" ),
+        url( "/base/assets/fonts/Roboto-BlackItalic.woff" ) format( "woff" ),
+		url( "/base/assets/fonts/Roboto-BlackItalic.ttf" ) format( "ttf" );
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Roboto";
+    src: url( "/base/assets/fonts/Roboto-Black.woff2" ) format( "woff2" ),
+        url( "/base/assets/fonts/Roboto-Black.woff" ) format( "woff" ),
+		url( "/base/assets/fonts/Roboto-Black.ttf" ) format( "ttf" );
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Roboto";
+    src: url( "/base/assets/fonts/Roboto-Bold.woff2" ) format( "woff2" ),
+        url( "/base/assets/fonts/Roboto-Bold.woff" ) format( "woff" ),
+		url( "/base/assets/fonts/Roboto-Bold.ttf" ) format( "ttf" );
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Roboto";
+    src: url( "/base/assets/fonts/Roboto-BoldItalic.woff2" ) format( "woff2" ),
+        url( "/base/assets/fonts/Roboto-BoldItalic.woff" ) format( "woff" ),
+		url( "/base/assets/fonts/Roboto-BoldItalic.ttf" ) format( "ttf" );
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Roboto";
+    src: url( "/base/assets/fonts/Roboto-Medium.woff2" ) format( "woff2" ),
+        url( "/base/assets/fonts/Roboto-Medium.woff" ) format( "woff" ),
+		url( "/base/assets/fonts/Roboto-Medium.ttf" ) format( "ttf" );
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Roboto";
+    src: url( "/base/assets/fonts/Roboto-Italic.woff2" ) format( "woff2" ),
+        url( "/base/assets/fonts/Roboto-Italic.woff" ) format( "woff" ),
+		url( "/base/assets/fonts/Roboto-Italic.ttf" ) format( "ttf" );
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Roboto";
+    src: url( "/base/assets/fonts/Roboto-MediumItalic.woff2" ) format( "woff2" ),
+        url( "/base/assets/fonts/Roboto-MediumItalic.woff" ) format( "woff" ),
+		url( "/base/assets/fonts/Roboto-MediumItalic.ttf" ) format( "ttf" );
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Roboto";
+    src: url( "/base/assets/fonts/Roboto-Regular.woff2" ) format( "woff2" ),
+        url( "/base/assets/fonts/Roboto-Regular.woff" ) format( "woff" ),
+		url( "/base/assets/fonts/Roboto-Regular.ttf" ) format( "ttf" );
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Roboto";
+    src: url( "/base/assets/fonts/Roboto-LightItalic.woff2" ) format( "woff2" ),
+        url( "/base/assets/fonts/Roboto-LightItalic.woff" ) format( "woff" ),
+		url( "/base/assets/fonts/Roboto-LightItalic.ttf" ) format( "ttf" );
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Roboto";
+    src: url( "/base/assets/fonts/Roboto-ThinItalic.woff2" ) format( "woff2" ),
+        url( "/base/assets/fonts/Roboto-ThinItalic.woff" ) format( "woff" ),
+		url( "/base/assets/fonts/Roboto-ThinItalic.ttf" ) format( "ttf" );
+    font-weight: 100;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Roboto";
+    src: url( "/base/assets/fonts/Roboto-Light.woff2" ) format( "woff2" ),
+        url( "/base/assets/fonts/Roboto-Light.woff" ) format( "woff" ),
+		url( "/base/assets/fonts/Roboto-Light.ttf" ) format( "ttf" );
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Roboto";
+    src: url( "/base/assets/fonts/Roboto-Thin.woff2" ) format( "woff2" ),
+        url( "/base/assets/fonts/Roboto-Thin.woff" ) format( "woff" ),
+		url( "/base/assets/fonts/Roboto-Thin.ttf" ) format( "ttf" );
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+
 html,
 body
 {
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
+    font-family: "Roboto", sans-serif;
 }
 
 .main
@@ -16,6 +177,13 @@ body
     line-height: 1.5em;
 }
 
+
+.main h1,
+.main h2,
+.main h3 {
+    font-weight: 900;
+}
+
 .story
 {
     margin: 1em 0;
@@ -24,7 +192,7 @@ body
 .story p
 {
     text-align: justify;
-    font-family: serif;
+    font-family: "Droid Serif", serif;
     margin: 0;
 }
 
