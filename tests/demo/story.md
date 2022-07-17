@@ -1,10 +1,16 @@
 # Demo Story
 
+## I.
+
 <O, cool>.
 
 Nasrin made a mistake that Saturday morn, just after waking up: they made the mistake o’ letting themself get carried ’way by the opium of optimism that today would be a peaceful, productive day where they might finish off most o’ their books, only to have that popped like a bubble ’pon stepping into the kitchen to boil tea & being greeted by a trespassing puddle, which was mo’ like a lake, spreading all o’er their kitchen floor from under the dishwasher like an imperialist empire — & after just washing their slippers, just showering, & wearing their favorite purple eye T-shirt & plaid dark gray sweat pants, too. ’Twas always a fun surprise to see what new contraption would break down in the lovely slum in which they paid 40,000₧ every month to live. They searched round their apartment for whate’er towels they could find & laid them on the puddle, only for them to be devoured from the inside by the invading water till they became blobs o’ goop while Nasrin’s new bay remained @ bay.
 
 They wandered their livingroom/diningroom/bedroom/office for a mop for minutes, bewilderingly unable to find it in such a small space, only to remember that they kept leaving it in the bathtub, always reminding them on 1st stepping in to every shower to take it out, only to always forget ’pon stepping out. They then rolled the weird plastic trolley with which the mop was bought — a smaller bucket that spun when the bottom petal was stepped on to dry the mop & a lower bucket to keep water — & began wiping up water & spinning the water out o’ it & into the lower bucket, gradually filling it with water that now looked brownish. But no matter how long they sponged up & squeezed, the lake wouldn’t drain, but just sloshed back sullenly into place a moment after.
+
+## II.
+
+### i.
 
 So Nasrin did what they usually did: they accepted that there was nothing they could do & that they would have to adjust their life round their new roommate. They stepped onto 1 o’ the clumps o’ seaweed that was formerly a towel, frowning deeply as they felt their feet get wet as the water slipped thru the sole o’ their slipper as if it weren’t e’en there, & carried out their normal morning task o’ filling their teapot with water & putting it on the stove. Then they left the kitchen, wiping the wet soles o’ their slippers on the carpet, & then sat down on their mattress & read a few haiku as they waited for the kettle to boil. After a few minutes, they heard their kettle’s familiar whistle call, & rose with their mug in hand.
 
